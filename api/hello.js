@@ -11,5 +11,7 @@ export async function GET(request) {
 
   const data = await response.json();
 
+  console.log(data.parse.text.replace(/<[^>]*>/g, ""));
+
   return new Response(`Hello ${data.parse.text.replace(/<[^>]*>/g, "")}`);
 }
