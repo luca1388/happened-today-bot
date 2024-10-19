@@ -6,12 +6,12 @@ export async function GET(request) {
   console.log(today);
 
   const response = await fetch(
-    `https://en.wikipedia.org/w/api.php?action=parse&page=${today}&format=json&prop=text%7Clanglinks%7Ccategories%7Clinks%7Ctemplates%7Cimages%7Cexternallinks%7Csections%7Crevid%7Cdisplaytitle%7Ciwlinks%7Cproperties%7Cparsewarnings&formatversion=2`
+    `https://en.wikipedia.org/w/api.php?action=parse&page=${today}&format=json&prop=text&section=2&disableeditsection=true`
   );
 
   const data = await response.json();
 
-  console.log(data.parse.text.replace(/<[^>]*>/g, ""));
+  console.log(data.parse.text["*"].replace(/<[^>]*>/g, ""));
 
   return new Response(`Hello ${data.parse.text.replace(/<[^>]*>/g, "")}`);
 }
