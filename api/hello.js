@@ -13,5 +13,5 @@ export async function GET(request) {
 
   console.log(data.parse.text["*"].replace(/<[^>]*>/g, ""));
 
-  return new Response(`Hello ${data.parse.text.replace(/<[^>]*>/g, "")}`);
+  return new Response(`Hello ${data.parse.text["*"].replace(/<[^>]*>/g, "")}`);
 }
